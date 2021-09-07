@@ -24,13 +24,30 @@ function runGame() {
   requestAnimationFrame(runGame);
   canvasContext.clearRect(0, 0, canvasEl.width, canvasEl.height);
   arrowInputs();
+  collisionDetection();
   drawBall();
 }
+//collision detection
+function collisionDetection() {
+  //bottom boundary
+  if (yP >= canvasEl.height - radius) {
+    yP = canvasEl.height - radius;
+  }
+}
+
 //moving balls
 function arrowInputs() {
   if (upDir) {
     yP = yP - speed;
-    console.log("the ball is moving");
+  }
+  if (downDir) {
+    yP = yP + speed;
+  }
+  if (leftDir) {
+    xP = xP - speed;
+  }
+  if (downDir) {
+    xP = xP + speed;
   }
 }
 
