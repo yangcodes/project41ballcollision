@@ -33,6 +33,18 @@ function collisionDetection() {
   if (yP >= canvasEl.height - radius) {
     yP = canvasEl.height - radius;
   }
+  //right boundary
+  if (xP >= canvasEl.width - radius) {
+    xP = canvasEl.width - radius;
+  }
+  //top boundary
+  if (yP <= radius) {
+    yP = radius;
+  }
+  //left boundary
+  if (xP <= radius) {
+    xP = radius;
+  }
 }
 
 //moving balls
@@ -46,7 +58,7 @@ function arrowInputs() {
   if (leftDir) {
     xP = xP - speed;
   }
-  if (downDir) {
+  if (rightDir) {
     xP = xP + speed;
   }
 }
